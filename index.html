@@ -3,502 +3,309 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Russ Photography</title>
+<title>Russ Haque — Photography</title>
+<meta name="description" content="Medium format film and digital photography by Russ Haque. Portraits in black and white.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --bg: #0e0e0d;
-    --fg: #e8e4dc;
-    --muted: #7a7570;
-    --accent: #c9a96e;
-    --serif: 'Cormorant Garamond', Georgia, serif;
-    --sans: 'Jost', sans-serif;
+  :root{
+    --ink:#17150f; --ink-lift:#211e16; --ink-deep:#0c0b08;
+    --paper:#e9e4d8; --paper-dim:#a8a294;
+    --rebate:#5c5749; --safelight:#b3402e; --frame:#0d0c09;
   }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--fg);
-    font-family: var(--sans);
-    font-weight: 300;
-    line-height: 1.7;
-    overflow-x: hidden;
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+  body{background:var(--ink);color:var(--paper);font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;-webkit-font-smoothing:antialiased;line-height:1.5;position:relative}
+  body::before{content:"";position:fixed;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");opacity:.05;pointer-events:none;z-index:1}
+  .mono{font-family:'IBM Plex Mono',monospace;font-weight:400;letter-spacing:.14em;text-transform:uppercase}
+  header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 1.4rem;mix-blend-mode:difference}
+  header a{color:var(--paper);text-decoration:none}
+  .wordmark{font-size:.72rem}
+  nav{display:flex;gap:1.4rem}
+  nav a{font-size:.62rem;opacity:.85}
+  nav a:hover,nav a:focus-visible{opacity:1;border-bottom:1px solid var(--paper)}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--safelight);outline-offset:3px}
+  .hero{min-height:100svh;display:grid;grid-template-rows:1fr auto;position:relative;overflow:hidden}
+  .hero-img{position:absolute;inset:0;background:url('images/00-hero-balcony.jpg') center 10%/cover no-repeat;animation:settle 2.2s ease-out both}
+  @keyframes settle{from{transform:scale(1.045);opacity:0}to{transform:scale(1);opacity:1}}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(13,12,9,.88) 0%, rgba(13,12,9,.25) 34%, rgba(13,12,9,0) 60%)}
+  .hero-text{grid-row:2;position:relative;z-index:2;padding:0 1.4rem 2.2rem}
+  .hero-text h1{font-size:clamp(2.6rem,9vw,5.5rem);font-weight:300;letter-spacing:.02em;line-height:1.02}
+  .hero-text h1 em{font-style:italic}
+  .hero-sub{margin-top:.9rem;font-size:.6rem;color:var(--paper-dim)}
+  .hero-sub b{color:var(--paper);font-weight:500}
+  .strip{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:1.1rem 1.4rem;border-top:1px solid rgba(233,228,216,.14);border-bottom:1px solid rgba(233,228,216,.14);font-size:.58rem;color:var(--rebate);background:var(--ink-deep)}
+  .strip span b{color:var(--paper-dim);font-weight:400}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 1.4rem}
+  .band{position:relative}
+  .band-a{background:var(--ink)}
+  .band-b{background:var(--ink-lift);box-shadow:inset 0 1px 0 rgba(233,228,216,.06), inset 0 14px 30px -22px rgba(0,0,0,.9)}
+  .band-b .frame .neg{border-color:rgba(233,228,216,.12)}
+  .chapter{padding:7.5rem 0 3.5rem;display:flex;align-items:baseline;gap:1.6rem;border-bottom:1px solid rgba(233,228,216,.12);margin-bottom:3.5rem}
+  .chapter .num{font-style:italic;font-size:clamp(3.4rem,9vw,6rem);line-height:.8;color:var(--safelight);font-weight:300}
+  .chapter .ct h2{font-size:clamp(1.7rem,4.5vw,2.6rem);font-weight:300;letter-spacing:.01em}
+  .chapter .ct p{margin-top:.5rem;font-size:.6rem;color:var(--rebate)}
+  .row{margin-bottom:4.5rem}
+  .band .row:last-child{margin-bottom:0}
+  .band .wrap{padding-bottom:5.5rem}
+  .row-pair{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+  .row-trio{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.6rem}
+  .frame{cursor:zoom-in;border:0;background:none;text-align:left;color:inherit;font:inherit;padding:0;display:block;width:100%}
+  .frame .neg{background:var(--frame);padding:10px;border:1px solid rgba(233,228,216,.08);transition:transform .45s cubic-bezier(.2,.7,.2,1);box-shadow:0 18px 40px -22px rgba(0,0,0,.85)}
+  .frame:hover .neg,.frame:focus-visible .neg{transform:translateY(-5px)}
+  .frame img{display:block;width:100%;height:auto}
+  .row-pair .frame img{aspect-ratio:4/5;object-fit:cover}
+  .row-trio .frame img{aspect-ratio:3/4;object-fit:cover}
+  .row-feature .frame img{aspect-ratio:16/10;object-fit:cover;max-height:78vh}
+  .rebate{display:flex;justify-content:space-between;align-items:baseline;gap:.6rem;margin-top:.7rem;font-size:.56rem;color:var(--rebate)}
+  .rebate .no{color:var(--safelight)}
+  .rebate .t{flex:1;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .frame:hover .rebate,.frame:focus-visible .rebate{color:var(--paper-dim)}
+  @media(max-width:700px){
+    .row-pair,.row-trio{grid-template-columns:1fr;gap:3rem}
+    .row{margin-bottom:3rem}
+    .chapter{padding:5rem 0 2.5rem}
   }
-
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.5rem 3rem;
-    background: linear-gradient(to bottom, rgba(14,14,13,0.95), transparent);
-  }
-  .nav-logo {
-    font-family: var(--serif);
-    font-size: 1.25rem;
-    letter-spacing: 0.08em;
-    color: var(--fg);
-    text-decoration: none;
-  }
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-  .nav-links a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 0.75rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    transition: color 0.3s;
-  }
-  .nav-links a:hover { color: var(--fg); }
-
-  #hero {
-    position: relative;
-    height: 100vh;
-    display: flex; align-items: center; justify-content: center;
-    overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background-image: url('img20231208_19512912.jpg');
-    background-size: cover;
-    background-position: center 30%;
-    filter: brightness(0.35);
-    transform: scale(1.04);
-    transition: transform 8s ease;
-  }
-  #hero:hover .hero-bg { transform: scale(1.0); }
-  .hero-content {
-    position: relative; z-index: 1;
-    text-align: center;
-    padding: 0 2rem;
-  }
-  .hero-eyebrow {
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1.5rem;
-  }
-  .hero-title {
-    font-family: var(--serif);
-    font-size: clamp(3.5rem, 9vw, 7rem);
-    font-weight: 300;
-    line-height: 1.05;
-    letter-spacing: -0.01em;
-    margin-bottom: 1.5rem;
-  }
-  .hero-title em { font-style: italic; color: var(--accent); }
-  .hero-sub {
-    color: var(--muted);
-    font-size: 0.85rem;
-    letter-spacing: 0.1em;
-    max-width: 40ch;
-    margin: 0 auto 2.5rem;
-  }
-  .btn {
-    display: inline-block;
-    padding: 0.8rem 2.5rem;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    text-decoration: none;
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    transition: all 0.3s;
-  }
-  .btn:hover { background: var(--accent); color: var(--bg); }
-  .scroll-hint {
-    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-    color: var(--muted); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
-  }
-  .scroll-line {
-    width: 1px; height: 48px; background: var(--muted);
-    animation: scrollPulse 2s ease-in-out infinite;
-  }
-  @keyframes scrollPulse { 0%,100%{opacity:0.3;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(1.2)} }
-
-  #gallery { padding: 8rem 3rem; }
-  .section-header {
-    text-align: center;
-    margin-bottom: 5rem;
-    opacity: 0; transform: translateY(24px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-  .section-header.visible { opacity: 1; transform: translateY(0); }
-  .section-label {
-    font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 1rem;
-  }
-  .section-title {
-    font-family: var(--serif);
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 300;
-    line-height: 1.1;
-  }
-  .section-title em { font-style: italic; }
-  .section-desc {
-    color: var(--muted); font-size: 0.85rem;
-    max-width: 50ch; margin: 1rem auto 0;
-  }
-
-  .gallery-grid {
-    columns: 3;
-    column-gap: 1.2rem;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-  @media (max-width: 900px) { .gallery-grid { columns: 2; } }
-  @media (max-width: 560px) { .gallery-grid { columns: 1; } }
-
-  .gallery-item {
-    break-inside: avoid;
-    margin-bottom: 1.2rem;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    opacity: 0; transform: translateY(20px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-  .gallery-item.visible { opacity: 1; transform: translateY(0); }
-  .gallery-item img {
-    display: block; width: 100%; height: auto;
-    transition: transform 0.6s ease, filter 0.6s ease;
-    filter: brightness(0.92) saturate(0.85);
-  }
-  .gallery-item:hover img { transform: scale(1.04); filter: brightness(1) saturate(1); }
-  .gallery-item-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(14,14,13,0.6) 0%, transparent 50%);
-    opacity: 0; transition: opacity 0.4s;
-    display: flex; align-items: flex-end; padding: 1.2rem;
-  }
-  .gallery-item:hover .gallery-item-overlay { opacity: 1; }
-  .gallery-item-label {
-    font-size: 0.65rem; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--fg);
-  }
-
-  #about {
-    padding: 8rem 3rem;
-    border-top: 1px solid rgba(255,255,255,0.07);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    align-items: center;
-  }
-  @media (max-width: 768px) { #about { grid-template-columns: 1fr; gap: 3rem; } }
-  .about-image-wrap {
-    position: relative;
-    opacity: 0; transform: translateX(-24px);
-    transition: opacity 0.9s ease, transform 0.9s ease;
-  }
-  .about-image-wrap.visible { opacity: 1; transform: translateX(0); }
-  .about-image-wrap img { width: 100%; display: block; filter: grayscale(20%) brightness(0.9); }
-  .about-image-wrap::before {
-    content: '';
-    position: absolute; top: -16px; left: -16px; right: 16px; bottom: 16px;
-    border: 1px solid rgba(201,169,110,0.25);
-    z-index: -1;
-  }
-  .about-text {
-    opacity: 0; transform: translateX(24px);
-    transition: opacity 0.9s ease, transform 0.9s ease;
-  }
-  .about-text.visible { opacity: 1; transform: translateX(0); }
-  .about-text h2 {
-    font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 300; line-height: 1.1; margin-bottom: 1.5rem;
-  }
-  .about-text h2 em { font-style: italic; color: var(--accent); }
-  .about-text p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1rem; }
-  .about-stats {
-    display: flex; gap: 2.5rem; margin-top: 2.5rem;
-    padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08);
-  }
-  .stat-num {
-    font-family: var(--serif); font-size: 2rem;
-    color: var(--accent); display: block;
-  }
-  .stat-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
-
-  #contact {
-    padding: 8rem 3rem;
-    border-top: 1px solid rgba(255,255,255,0.07);
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  #contact h2 {
-    font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 300; margin-bottom: 1rem;
-  }
-  #contact h2 em { font-style: italic; color: var(--accent); }
-  #contact p { color: var(--muted); margin-bottom: 3rem; font-size: 0.9rem; }
-  .contact-form { display: flex; flex-direction: column; gap: 1rem; text-align: left; }
-  .contact-form input,
-  .contact-form textarea {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.1);
-    color: var(--fg);
-    padding: 0.9rem 1.2rem;
-    font-family: var(--sans);
-    font-size: 0.85rem;
-    font-weight: 300;
-    outline: none;
-    transition: border-color 0.3s;
-    width: 100%;
-  }
-  .contact-form input:focus,
-  .contact-form textarea:focus { border-color: var(--accent); }
-  .contact-form textarea { height: 140px; resize: vertical; }
-  .contact-form button {
-    align-self: flex-start;
-    padding: 0.85rem 2.5rem;
-    border: 1px solid var(--accent);
-    background: transparent;
-    color: var(--accent);
-    font-family: var(--sans);
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  .contact-form button:hover { background: var(--accent); color: var(--bg); }
-  .contact-info { margin-top: 3rem; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
-  .contact-info a { color: var(--muted); text-decoration: none; font-size: 0.8rem; transition: color 0.3s; }
-  .contact-info a:hover { color: var(--accent); }
-  #form-msg { display: none; color: var(--accent); font-size: 0.8rem; margin-top: 0.5rem; letter-spacing: 0.1em; }
-
-  footer {
-    padding: 2rem 3rem;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    display: flex; justify-content: space-between; align-items: center;
-    flex-wrap: wrap; gap: 1rem;
-  }
-  footer p { color: var(--muted); font-size: 0.7rem; letter-spacing: 0.1em; }
-
-  #lightbox {
-    position: fixed; inset: 0; z-index: 1000;
-    background: rgba(14,14,13,0.97);
-    display: flex; align-items: center; justify-content: center;
-    opacity: 0; pointer-events: none;
-    transition: opacity 0.4s;
-  }
-  #lightbox.open { opacity: 1; pointer-events: all; }
-  #lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; }
-  .lightbox-close {
-    position: absolute; top: 1.5rem; right: 2rem;
-    color: var(--muted); font-size: 1.5rem; cursor: pointer;
-    font-family: var(--serif); font-weight: 300;
-    transition: color 0.3s;
-  }
-  .lightbox-close:hover { color: var(--fg); }
+  .pull{background:var(--ink-deep);box-shadow:inset 0 1px 0 rgba(233,228,216,.05)}
+  .pull-inner{max-width:760px;margin:0 auto;padding:7rem 1.4rem;text-align:center}
+  .pull p{font-size:clamp(1.4rem,4vw,2.1rem);font-style:italic;line-height:1.5}
+  .pull .mono{display:block;margin-top:1.2rem;font-size:.56rem;color:var(--safelight)}
+  .about{background:var(--ink-lift);border-top:1px solid rgba(233,228,216,.1)}
+  .about-inner{max-width:760px;margin:0 auto;padding:6rem 1.4rem;text-align:center}
+  .about .mono{font-size:.6rem;color:var(--safelight)}
+  .about p{margin-top:1.4rem;font-size:clamp(1.25rem,3.4vw,1.7rem);line-height:1.55;color:var(--paper)}
+  footer{border-top:1px solid rgba(233,228,216,.14);padding:2.2rem 1.4rem 5rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.58rem;color:var(--rebate);background:var(--ink-deep)}
+  footer a{color:var(--paper-dim);text-decoration:none;border-bottom:1px solid transparent}
+  footer a:hover{color:var(--paper);border-color:var(--safelight)}
+  .lb{position:fixed;inset:0;z-index:100;background:rgba(12,11,8,.97);display:none;align-items:center;justify-content:center;padding:1.2rem}
+  .lb.open{display:flex}
+  .lb img{max-width:100%;max-height:86vh;border:10px solid var(--frame)}
+  .lb-cap{position:fixed;bottom:1.1rem;left:1.4rem;font-size:.58rem;color:var(--paper-dim)}
+  .lb-close{position:fixed;top:1rem;right:1.2rem;background:none;border:0;color:var(--paper);cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.14em;padding:.5rem}
+  .lb-close:hover{color:var(--safelight)}
 </style>
 </head>
 <body>
 
-<nav>
-  <a href="#hero" class="nav-logo">Russ Photography</a>
-  <ul class="nav-links">
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+<header>
+  <a class="wordmark mono" href="#top">Russ&nbsp;Haque</a>
+  <nav class="mono">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="https://instagram.com/russartphotography" target="_blank" rel="noopener">Instagram</a>
+  </nav>
+</header>
 
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-content">
-    <p class="hero-eyebrow">Medium Format · Film Photography</p>
-    <h1 class="hero-title">Light,&nbsp; Shadow<br>&amp;&nbsp; <em>Silver</em></h1>
-    <p class="hero-sub">Capturing the world through the grain and warmth of analog film. Each frame a considered moment — unhurried, tactile, permanent.</p>
-    <a href="#gallery" class="btn">View the Work</a>
-  </div>
-  <div class="scroll-hint">
-    <div class="scroll-line"></div>
-    <span>Scroll</span>
+<section class="hero" id="top">
+  <div class="hero-img" role="img" aria-label="Woman in a black lace dress on a balcony, eyes closed to the sun, one arm raised against the wall"></div>
+  <div class="hero-text">
+    <h1>Portraits on <em>film,</em><br>printed in light.</h1>
+    <p class="hero-sub mono"><b>Russ Haque</b> &nbsp;·&nbsp; Medium format film &amp; digital &nbsp;·&nbsp; Krefeld / Düsseldorf</p>
   </div>
 </section>
 
-<section id="gallery">
-  <div class="section-header">
-    <p class="section-label">Portfolio</p>
-    <h2 class="section-title">Selected <em>Works</em></h2>
-    <p class="section-desc">A collection of images made on medium format film — each one developed, scanned, and printed by hand.</p>
-  </div>
-  <div class="gallery-grid">
-    <div class="gallery-item">
-      <img src="rus%20004%20-%20%288%20de%2010%29.JPG" alt="Portrait – Russ Photography" loading="lazy">
-      <div class="gallery-item-overlay"><span class="gallery-item-label">Medium Format · 120 Film</span></div>
+<div class="strip mono">
+  <span><b>Format</b> Medium format · 135</span>
+  <span><b>Stock</b> Ilford HP5+ &amp; others</span>
+  <span><b>Practice</b> Portrait · Editorial</span>
+  <span><b>Find me</b> @russartphotography</span>
+</div>
+
+<main id="work">
+<section class="band band-a">
+  <div class="wrap">
+    <div class="chapter">
+      <span class="num">I</span>
+      <div class="ct">
+        <h2>Southern Light</h2>
+        <p class="mono">Rooftops and courtyards, Spain — hard sun, white walls, HP5+.</p>
+      </div>
     </div>
-    <div class="gallery-item">
-      <img src="rus%20005%20-%20%282%20de%2010%29.JPG" alt="Seated portrait – Russ Photography" loading="lazy">
-      <div class="gallery-item-overlay"><span class="gallery-item-label">Medium Format · 120 Film</span></div>
+    <div class="row row-feature">
+      <!-- FRAME 01: Rooftop, arms to the sun -->
+      <button class="frame" data-cap="Frame 01 · Rooftop, arms to the sun · Film · HP5+" aria-label="View photo 1 large">
+        <div class="neg"><img src="images/01-rooftop-sun.jpg" alt="Woman stretching her arms overhead in bright sun on a Mediterranean rooftop, the photographer's shadow on the wall behind" loading="lazy"></div>
+        <div class="rebate mono"><span class="no">01</span><span class="t">Rooftop, arms to the sun</span><span>Film · HP5+</span></div>
+      </button>
     </div>
-    <div class="gallery-item">
-      <img src="rus%20005%20-%20%284%20de%2010%29.JPG" alt="Portrait on steps – Russ Photography" loading="lazy">
-      <div class="gallery-item-overlay"><span class="gallery-item-label">Medium Format · 120 Film</span></div>
+    <div class="row row-pair">
+      <!-- FRAME 13: Against the white wall -->
+      <button class="frame" data-cap="Frame 13 · Against the white wall · Film · HP5+" aria-label="View photo 13 large">
+        <div class="neg"><img src="images/13-white-wall.jpg" alt="Tattooed woman in a sheer dress leaning on a sunlit white rooftop wall, eyes closed" loading="lazy"></div>
+        <div class="rebate mono"><span class="no">13</span><span class="t">Against the white wall</span><span>Film · HP5+</span></div>
+      </button>
+      <!-- FRAME 09: Rooftop portrait -->
+      <button class="frame" data-cap="Frame 09 · Rooftop portrait · Film · HP5+" aria-label="View photo 9 large">
+        <div class="neg"><img src="images/09-rooftop-portrait.jpg" alt="Portrait of a curly-haired woman on a rooftop terrace, white houses and the sea behind her" loading="lazy"></div>
+        <div class="rebate mono"><span class="no">09</span><span class="t">Rooftop portrait</span><span>Film · HP5+</span></div>
+      </button>
     </div>
-    <div class="gallery-item">
-      <img src="rus%20004%20-%20%285%20de%2010%29.JPG" alt="Street portrait – Russ Photography" loading="lazy">
-      <div class="gallery-item-overlay"><span class="gallery-item-label">Medium Format · 120 Film</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="rus%20005%20-%20%288%20de%2010%29.JPG" alt="Portrait against wall – Russ Photography" loading="lazy">
-      <div class="gallery-item-overlay"><span class="gallery-item-label">Medium Format · 120 Film</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="rus%20004%20-%20%2810%20de%2010%29.JPG" alt="Portrait against rock – Russ Photography" loading="lazy">
-      <div class="gallery-item-overlay"><span class="gallery-item-label">Medium Format · 120 Film</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="img20231106_23452718.jpg" alt="Seated on rock – Russ Photography" loading="lazy">
-      <div class="gallery-item-overlay"><span class="gallery-item-label">Medium Format · 120 Film</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="img20231106_23391915.jpg" alt="Portrait with plant – Russ Photography" loading="lazy">
-      <div class="gallery-item-overlay"><span class="gallery-item-label">Medium Format · 120 Film</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="img20231106_23315365.jpg" alt="Urban café portrait – Russ Photography" loading="lazy">
-      <div class="gallery-item-overlay"><span class="gallery-item-label">Medium Format · 120 Film</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="rus%20001%20%28Hp5%29%20%281%20de%2010%29%20%285%29.JPG" alt="Sun portrait – Russ Photography" loading="lazy">
-      <div class="gallery-item-overlay"><span class="gallery-item-label">Medium Format · 120 Film</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="rus%20001%20%28Hp5%29%20%281%20de%2010%29%20%288%29.JPG" alt="Arms raised – Russ Photography" loading="lazy">
-      <div class="gallery-item-overlay"><span class="gallery-item-label">Medium Format · 120 Film</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="rus%20001%20%28Hp5%29%20%281%20de%2010%29%20%281%29.JPG" alt="Back portrait outdoors – Russ Photography" loading="lazy">
-      <div class="gallery-item-overlay"><span class="gallery-item-label">Medium Format · 120 Film</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="rus%20002%20%28Hp%E2%97%86%29%20%2810%20de%2012%29.JPG" alt="Rooftop portrait – Russ Photography" loading="lazy">
-      <div class="gallery-item-overlay"><span class="gallery-item-label">Medium Format · 120 Film</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="rus%20002%20%28Hp%E2%97%86%29%20%289%20de%2012%29.JPG" alt="Full length portrait – Russ Photography" loading="lazy">
-      <div class="gallery-item-overlay"><span class="gallery-item-label">Medium Format · 120 Film</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="img20231208_19555535.jpg" alt="Balcony silhouette – Russ Photography" loading="lazy">
-      <div class="gallery-item-overlay"><span class="gallery-item-label">Medium Format · 120 Film</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="img20231208_19512912.jpg" alt="Balcony portrait – Russ Photography" loading="lazy">
-      <div class="gallery-item-overlay"><span class="gallery-item-label">Medium Format · 120 Film</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="img20231208_19455439.jpg" alt="Candlelight portrait – Russ Photography" loading="lazy">
-      <div class="gallery-item-overlay"><span class="gallery-item-label">Medium Format · 120 Film</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="img20231208_19324648.jpg" alt="Portrait with sculpture – Russ Photography" loading="lazy">
-      <div class="gallery-item-overlay"><span class="gallery-item-label">Medium Format · 120 Film</span></div>
-    </div>
-    <div class="gallery-item">
-      <img src="rus%20001%20%28Hp5%29%20%281%20de%2010%29%20%282%29.JPG" alt="Studio portrait – Russ Photography" loading="lazy">
-      <div class="gallery-item-overlay"><span class="gallery-item-label">Medium Format · 120 Film</span></div>
+    <div class="row row-trio">
+      <!-- FRAME 07: At the window -->
+      <button class="frame" data-cap="Frame 07 · At the window · Digital" aria-label="View photo 7 large">
+        <div class="neg"><img src="images/07-barcelona-window.jpg" alt="Woman in a white backless dress leaning out of an old-town window, sunlight on her back" loading="lazy"></div>
+        <div class="rebate mono"><span class="no">07</span><span class="t">At the window</span><span>Digital</span></div>
+      </button>
+      <!-- FRAME 03: On the millstone -->
+      <button class="frame" data-cap="Frame 03 · On the millstone · Film" aria-label="View photo 3 large">
+        <div class="neg"><img src="images/03-millstone.jpg" alt="Woman in a striped shirt sitting barefoot on an old stone mill wheel against a rough stone wall" loading="lazy"></div>
+        <div class="rebate mono"><span class="no">03</span><span class="t">On the millstone</span><span>Film</span></div>
+      </button>
+      <!-- FRAME 11: Courtyard steps -->
+      <button class="frame" data-cap="Frame 11 · Courtyard steps · Film" aria-label="View photo 11 large">
+        <div class="neg"><img src="images/11-courtyard-steps.jpg" alt="Woman in a pale suit sitting barefoot on worn stone steps in a shaded courtyard" loading="lazy"></div>
+        <div class="rebate mono"><span class="no">11</span><span class="t">Courtyard steps</span><span>Film</span></div>
+      </button>
     </div>
   </div>
 </section>
-
-<section id="about">
-  <div class="about-image-wrap">
-    <img src="img20231208_19324648.jpg" alt="Russell Haque – Russ Photography">
-  </div>
-  <div class="about-text">
-    <p class="section-label" style="text-align:left; margin-bottom:1rem;">About</p>
-    <h2>The <em>Photographer</em></h2>
-    <p>I'm Russell Haque — a hobbyist photographer based in Düsseldorf, with a passion for medium format film. I'm not one to debate the merits of film versus digital; both are beautiful in their own way, and I have deep respect for each.</p>
-    <p>What draws me to film is something harder to define — the slowness, the deep concentration, the genuine connection with the moment, and the hard work that goes into every single frame. That effort is what makes each photograph feel passionate and valuable to me. Nothing is accidental. Everything is earned.</p>
-    <div class="about-stats">
-      <div><span class="stat-num">120</span><span class="stat-label">Film Format</span></div>
-      <div><span class="stat-num">6×6</span><span class="stat-label">Frame Size</span></div>
-      <div><span class="stat-num">Film</span><span class="stat-label">Always Analog</span></div>
+<section class="band band-b">
+  <div class="wrap">
+    <div class="chapter">
+      <span class="num">II</span>
+      <div class="ct">
+        <h2>Garden Studies</h2>
+        <p class="mono">Parks around the Rhineland — soft light, slow afternoons.</p>
+      </div>
+    </div>
+    <div class="row row-feature">
+      <!-- FRAME 08: Resting, late summer -->
+      <button class="frame" data-cap="Frame 08 · Resting, late summer · Film" aria-label="View photo 8 large">
+        <div class="neg"><img src="images/08-picnic-bench.jpg" alt="Profile of a woman lying on a weathered picnic table, hair hanging down, meadow behind" loading="lazy"></div>
+        <div class="rebate mono"><span class="no">08</span><span class="t">Resting, late summer</span><span>Film</span></div>
+      </button>
+    </div>
+    <div class="row row-trio">
+      <!-- FRAME 02: Through the oak leaves -->
+      <button class="frame" data-cap="Frame 02 · Through the oak leaves · Film" aria-label="View photo 2 large">
+        <div class="neg"><img src="images/02-leaf-shadow.jpg" alt="Half-hidden portrait of a woman behind sunlit oak leaves, leaf shadows across her face" loading="lazy"></div>
+        <div class="rebate mono"><span class="no">02</span><span class="t">Through the oak leaves</span><span>Film</span></div>
+      </button>
+      <!-- FRAME 10: Between the branches -->
+      <button class="frame" data-cap="Frame 10 · Between the branches · Film" aria-label="View photo 10 large">
+        <div class="neg"><img src="images/10-between-branches.jpg" alt="Woman in a black turtleneck framed between the peeling trunks of a young tree" loading="lazy"></div>
+        <div class="rebate mono"><span class="no">10</span><span class="t">Between the branches</span><span>Film</span></div>
+      </button>
+      <!-- FRAME 06: Daisies, midday sun -->
+      <button class="frame" data-cap="Frame 06 · Daisies, midday sun · Film" aria-label="View photo 6 large">
+        <div class="neg"><img src="images/06-daisies.jpg" alt="Woman lying in grass among daisies, shading her eyes with her forearm in harsh sunlight" loading="lazy"></div>
+        <div class="rebate mono"><span class="no">06</span><span class="t">Daisies, midday sun</span><span>Film</span></div>
+      </button>
+    </div>
+    <div class="row row-pair">
+      <!-- FRAME 05: Garden portrait -->
+      <button class="frame" data-cap="Frame 05 · Garden portrait · Film" aria-label="View photo 5 large">
+        <div class="neg"><img src="images/05-garden-portrait.jpg" alt="Seated portrait of a young woman in a white blazer against soft, out-of-focus trees" loading="lazy"></div>
+        <div class="rebate mono"><span class="no">05</span><span class="t">Garden portrait</span><span>Film</span></div>
+      </button>
+      <!-- FRAME 19: On the garden path -->
+      <button class="frame" data-cap="Frame 19 · On the garden path · Film" aria-label="View photo 19 large">
+        <div class="neg"><img src="images/19-garden-path.jpg" alt="Full-length portrait of a woman in a white blazer standing on a cobbled garden path" loading="lazy"></div>
+        <div class="rebate mono"><span class="no">19</span><span class="t">On the garden path</span><span>Film</span></div>
+      </button>
+    </div>
+    <div class="row row-feature">
+      <!-- FRAME 16: Against the sky -->
+      <button class="frame" data-cap="Frame 16 · Against the sky · Film" aria-label="View photo 16 large">
+        <div class="neg"><img src="images/16-against-the-sky.jpg" alt="Low-angle full-length portrait of a woman in black standing against a pale open sky" loading="lazy"></div>
+        <div class="rebate mono"><span class="no">16</span><span class="t">Against the sky</span><span>Film</span></div>
+      </button>
+    </div>
+    <div class="row row-pair">
+      <!-- FRAME 12: A smile, off guard -->
+      <button class="frame" data-cap="Frame 12 · A smile, off guard · Film" aria-label="View photo 12 large">
+        <div class="neg"><img src="images/12-garden-smile.jpg" alt="Smiling woman in a striped wrap dress with a scarf and sunglasses in a garden" loading="lazy"></div>
+        <div class="rebate mono"><span class="no">12</span><span class="t">A smile, off guard</span><span>Film</span></div>
+      </button>
+      <!-- FRAME 17: Stripes in the sun -->
+      <button class="frame" data-cap="Frame 17 · Stripes in the sun · Film" aria-label="View photo 17 large">
+        <div class="neg"><img src="images/17-stripes-sun.jpg" alt="Woman in sunglasses and a striped top standing in a sunlit park" loading="lazy"></div>
+        <div class="rebate mono"><span class="no">17</span><span class="t">Stripes in the sun</span><span>Film</span></div>
+      </button>
     </div>
   </div>
 </section>
+<div class="pull">
+  <div class="pull-inner">
+    <p>“Shot slowly, on film, one frame at a time —<br>developed by hand, printed in light.”</p>
+    <span class="mono">Russ Haque</span>
+  </div>
+</div>
+<section class="band band-a">
+  <div class="wrap">
+    <div class="chapter">
+      <span class="num">III</span>
+      <div class="ct">
+        <h2>City & Interiors</h2>
+        <p class="mono">Windows, mirrors, riversides — closer to home.</p>
+      </div>
+    </div>
+    <div class="row row-feature">
+      <!-- FRAME 04: Mirror, with photographer -->
+      <button class="frame" data-cap="Frame 04 · Mirror, with photographer · Film" aria-label="View photo 4 large">
+        <div class="neg"><img src="images/04-mirror.jpg" alt="Portrait of a dark-haired woman beside a mirror reflecting the photographer with his camera" loading="lazy"></div>
+        <div class="rebate mono"><span class="no">04</span><span class="t">Mirror, with photographer</span><span>Film</span></div>
+      </button>
+    </div>
+    <div class="row row-trio">
+      <!-- FRAME 15: Terrace, waiting -->
+      <button class="frame" data-cap="Frame 15 · Terrace, waiting · Digital" aria-label="View photo 15 large">
+        <div class="neg"><img src="images/15-terrace-evening.jpg" alt="Elegant blonde woman seated in a wicker chair on a stone terrace, chin resting on her hands" loading="lazy"></div>
+        <div class="rebate mono"><span class="no">15</span><span class="t">Terrace, waiting</span><span>Digital</span></div>
+      </button>
+      <!-- FRAME 18: Riverside, grey hat -->
+      <button class="frame" data-cap="Frame 18 · Riverside, grey hat · Digital" aria-label="View photo 18 large">
+        <div class="neg"><img src="images/18-riverside-hat.jpg" alt="Curly-haired woman in a wide-brimmed hat leaning on a stone riverside wall, city behind" loading="lazy"></div>
+        <div class="rebate mono"><span class="no">18</span><span class="t">Riverside, grey hat</span><span>Digital</span></div>
+      </button>
+      <!-- FRAME 14: Glance back -->
+      <button class="frame" data-cap="Frame 14 · Glance back · Film" aria-label="View photo 14 large">
+        <div class="neg"><img src="images/14-glance-back.jpg" alt="Woman in a floral blouse glancing back over her shoulder by a large window" loading="lazy"></div>
+        <div class="rebate mono"><span class="no">14</span><span class="t">Glance back</span><span>Film</span></div>
+      </button>
+    </div>
+  </div>
+</section>
+</main>
 
-<section id="contact">
-  <p class="section-label">Contact</p>
-  <h2>Let's <em>Talk</em></h2>
-  <p>Whether you're interested in prints, collaborations, or just want to talk film — I'd love to hear from you.</p>
-  <form class="contact-form" onsubmit="handleSubmit(event)">
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Email Address" required>
-    <textarea placeholder="Message"></textarea>
-    <button type="submit">Send Message</button>
-    <p id="form-msg">✓ Thank you — I'll be in touch soon.</p>
-  </form>
-  <div class="contact-info">
-    <a href="mailto:russellhaque3@gmail.com">russellhaque3@gmail.com</a>
-    <span style="color:var(--muted); font-size:0.8rem;">Düsseldorf, Germany</span>
+<section class="about" id="about">
+  <div class="about-inner">
+    <p class="mono">About</p>
+    <p>I photograph people the way classic cinema lit them — slowly, deliberately, one frame at a time. Most of this work is shot on medium format film and developed by hand; the rest is digital, finished with the same eye. <em>What you see is the negative, not the edit.</em></p>
   </div>
 </section>
 
-<footer>
-  <p>© 2026 Russell Haque · All Rights Reserved · Shot on Film</p>
-  <p style="color:var(--muted)">@russartphotography</p>
+<footer class="mono">
+  <span>© 2026 Russ Haque · All photographs are the property of the artist</span>
+  <span><a href="https://instagram.com/russartphotography" target="_blank" rel="noopener">@russartphotography</a></span>
 </footer>
 
-<div id="lightbox">
-  <span class="lightbox-close" onclick="closeLightbox()">✕</span>
-  <img id="lightbox-img" src="" alt="">
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lb-close" id="lbClose">Close ✕</button>
+  <img id="lbImg" src="" alt="">
+  <p class="lb-cap mono" id="lbCap"></p>
 </div>
 
 <script>
-  document.querySelectorAll('.gallery-item').forEach(item => {
-    item.addEventListener('click', () => {
-      const img = item.querySelector('img');
-      if (img) {
-        document.getElementById('lightbox-img').src = img.src;
-        document.getElementById('lightbox').classList.add('open');
-        document.body.style.overflow = 'hidden';
-      }
+  const lb = document.getElementById('lb');
+  const lbImg = document.getElementById('lbImg');
+  const lbCap = document.getElementById('lbCap');
+  document.querySelectorAll('.frame').forEach(f => {
+    f.addEventListener('click', () => {
+      const img = f.querySelector('img');
+      lbImg.src = img.src; lbImg.alt = img.alt;
+      lbCap.textContent = f.dataset.cap;
+      lb.classList.add('open');
+      document.getElementById('lbClose').focus();
     });
   });
-  function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  document.getElementById('lightbox').addEventListener('click', function(e) {
-    if (e.target === this) closeLightbox();
-  });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    document.getElementById('form-msg').style.display = 'block';
-    e.target.reset();
-  }
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.gallery-item, .section-header, .about-image-wrap, .about-text').forEach(el => {
-    observer.observe(el);
-  });
-
-  document.querySelectorAll('.gallery-item').forEach((el, i) => {
-    el.style.transitionDelay = `${(i % 6) * 80}ms`;
-  });
+  function closeLb(){ lb.classList.remove('open'); lbImg.src=''; }
+  document.getElementById('lbClose').addEventListener('click', closeLb);
+  lb.addEventListener('click', e => { if(e.target === lb) closeLb(); });
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLb(); });
 </script>
+
 </body>
 </html>
