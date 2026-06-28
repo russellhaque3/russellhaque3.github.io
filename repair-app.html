@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<title>Repair</title>
+<meta name="theme-color" content="#1f2421">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Repair">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAYAAAA9zQYyAAAFKklEQVR4nO3dsW0cRxTG8TnCEODAkQoQFKgAN6ACnDhSG0pVg1O14ciJClADKoABwQIcOTCghAqElfaWu3szs/Pmvfn2/8tJbvDXx3d3AnhJAbx68/rJ+xlw3OP9w8X7GVwegIDPwSPwbj+QiM+tV9ymP4SIscYybpNvTMjIYRH2XetvSMzIZdFKs38hhIwjWq11k4UmZhzVqqFD/yoIGRaOrHX1QhMzrBxpqypoYoa12saKgyZm9FLTWlHQxIzeSpvLDpqY4aWkvaygiRnechu8GTQxI4qcFpt/9A142g2adUY0t5rcDJqYEdVem5wckLIaNOuM6LYafRY0MWMUa61yckDKVdCsM0azbJaFhhSChpQfQXNuYFTzdlloSCFoSLlLiXMD45saZqEhhaAhhaAh5cL9DCUsNKQQNKQQNKQQNKQQNKQQNKQQNKQQNKQQNKQQNKT84v0AHn7/433x13z59NHgScp8ePuu+Gv++vy3wZPEJf9/OWrizWUZeU28uZQjlwzaMuItLeK2jHiLWtwyQXtEvKUkbo+ItyjEPXzQkUJe2gs7UshLI4c9bNCRQ16ahx055KURwx4u6JFCnvvz8jX9/9+/3o9RZaSwhwl65JCXCNvOEB+sKMWcUkq//vay85O0McK5FD5otZgnRG0j7MmhGvIaTpB2Qi70mWJOibVuKVzQZ4t5QtRthAr6rDFPiPq4MEGfPeYJUR8TImhivkbU9dyDJuZ1RF3HNWhi3kfU5dwXGmjJLWjWOQ8rXcYlaGIuQ9T5ugdNzHWIOg83NKR0DZp1PoaVvo2FhpRuQbPObbDS+1hoSOkSNOvcFiu9jYWGFPOgWWcbrPQ6FhpSCBpSTIPm3LDF2fEcCw0pBA0pZkFzbvTB2XGNhYYUgoYUgoYUgoYUk6B5QdgXLwx/YqEhhaAhhaAhhaAhhaAhhaAhhaAhhaAhhaAhhaAhhaAhhaAhxSToL58+Wnxbc/88vfB+hCr8aeWfWGhIIWhIIWhIIWhIMQuaF4Z98ILwGgsNKQQNKaZBc3bY4tx4joWGFIKGFPOgOTtscG6sY6EhpUvQrHRbrPM2FhpSugXNSrfBOu9joSGla9Cs9DGs820sNKR0D5qVrsM653FZaKIuQ8z53E4Oos5DzGW4oSHFNWhWeh/rXM59oYl6HTHXcQ86JaJeIuZ6IYJOiagnxHxMmKBTImpiPi5U0CmdN2pibiNc0CmdL2pibufy6s3rJ++H2KP8Z5YJub2QCz2nutbEbCN80CnpRU3MdsKfHEsjnyCEbG+4oCcjhT3/DfPh7TvHJykzUsiTYYOeRA5771SKHPaIIU+GD3oSKeySmz9S2COHPJEJes4j7hYvXD3iVoh4TjLoOcu4Ld99sYxbLeI5+aDX1EQe4a3DmsiV411zyqCha4gPVoBcBA0pBA0pBA0pBA0pBA0pBA0pBA0pBA0pd4/3DxfvhwBaeLx/uLDQkELQkELQkHKX0vfbw/tBgCOmhlloSCFoSPkRNGcHRjVvl4WGFIKGlKugOTswmmWzLDSkPAualcYo1lpdXWiiRnRbjXJyQMpm0Kw0otprc3ehiRrR3GqSkwNSbgbNSiOKnBazFpqo4S23weyTg6jhpaS9ohuaqNFbaXPFLwqJGr3UtFb1LgdRw1ptY9Vv2xE1rBxpq0mU/FkLtNBiJJt8sMJa46hWDTUPkbVGidZj2Pyjb9YauSxaMY2PtcYay9HrtqbEfW69fnO7nAfEfQ4e52eIe5fANUR4/fQNbi8iqiPMJ0sAAAAASUVORK5CYII=">
+<link rel="icon" href="data:image/png;base64,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">
+<link rel="manifest" href='data:application/manifest+json,{"name":"Repair","short_name":"Repair","start_url":".","display":"standalone","background_color":"%231f2421","theme_color":"%231f2421","icons":[{"src":"data:image/png;base64,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","sizes":"192x192","type":"image/png"},{"src":"data:image/png;base64,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","sizes":"512x512","type":"image/png"}]}'>
+<style>
+:root{
+  --bg:#F5F3EE; --surface:#FFFFFF; --surface2:#FBFAF7;
+  --text:#23262B; --muted:#6B7177; --faint:#9AA0A6;
+  --line:#E7E3DA; --line2:#D9D4C8;
+  --accent:#2F6B57; --accent-bg:#E4EFEA;
+  --russ:#4F77A1; --russ-bg:#E7EEF5;
+  --pam:#A86680; --pam-bg:#F4E9EE;
+  --due:#9A6B12; --due-bg:#F7EEDB;
+  --ok:#3B6D2E; --ok-bg:#E8F1DF;
+  --bad:#A23A39; --bad-bg:#F8E7E6;
+  --radius:13px;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#16181B; --surface:#1F2226; --surface2:#23272C;
+    --text:#ECEAE4; --muted:#9AA0A6; --faint:#71777D;
+    --line:#2C3036; --line2:#363B42;
+    --accent:#5FA98E; --accent-bg:#1E2E2A;
+    --russ:#7FA3CC; --russ-bg:#1C2530;
+    --pam:#CF94AC; --pam-bg:#2C1F26;
+    --due:#D6A24A; --due-bg:#2E2718;
+    --ok:#8FC078; --ok-bg:#1E2A18;
+    --bad:#D88180; --bad-bg:#2C1A1A;
+  }
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.serif{font-family:Georgia,"Times New Roman",serif;font-weight:500}
+.screen{display:none;min-height:100vh}
+.screen.active{display:block}
+
+/* centered screens (setup, identity) */
+.center{min-height:100vh;display:flex;flex-direction:column;justify-content:center;
+  padding:32px 24px;max-width:480px;margin:0 auto}
+.mark{width:72px;height:72px;border-radius:20px;background:#1f2421;display:flex;align-items:center;
+  justify-content:center;margin-bottom:24px}
+.mark svg{width:46px;height:46px}
+.center h1{font-size:28px;margin:0 0 8px}
+.center p.lead{color:var(--muted);margin:0 0 28px;font-size:15px}
+.big-choice{display:flex;flex-direction:column;gap:12px}
+.choice-btn{padding:18px 20px;border-radius:var(--radius);border:1px solid var(--line2);
+  background:var(--surface);color:var(--text);font-size:17px;font-weight:500;text-align:left;
+  cursor:pointer;display:flex;align-items:center;gap:14px}
+.choice-btn .dot{width:14px;height:14px;border-radius:50%}
+.choice-btn.russ:active{background:var(--russ-bg)}
+.choice-btn.pam:active{background:var(--pam-bg)}
+.setup-steps{font-size:14px;color:var(--text);background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--radius);padding:18px 20px;line-height:1.7}
+.setup-steps ol{margin:0;padding-left:20px}
+.setup-steps code{background:var(--bg);padding:1px 6px;border-radius:5px;font-size:13px}
+
+/* app shell */
+#screen-app{padding-bottom:88px}
+.appbar{position:sticky;top:0;z-index:30;background:var(--bg);
+  padding:calc(env(safe-area-inset-top) + 14px) 18px 12px;border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between}
+.appbar h1{font-size:21px;margin:0}
+.who-chip{font-size:12px;font-weight:500;padding:5px 11px;border-radius:20px;display:flex;align-items:center;gap:6px}
+.who-chip .dot{width:9px;height:9px;border-radius:50%}
+.who-russ{background:var(--russ-bg);color:var(--russ)}
+.who-pam{background:var(--pam-bg);color:var(--pam)}
+.sync-dot{width:7px;height:7px;border-radius:50%;background:var(--ok);display:inline-block;margin-left:7px}
+.sync-off{background:var(--due)}
+
+.content{padding:18px 16px 8px;max-width:560px;margin:0 auto}
+.tabview{display:none}.tabview.active{display:block}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px;margin-bottom:14px}
+.notice{font-size:13px;color:var(--muted);background:var(--surface2);border:1px solid var(--line);
+  border-radius:var(--radius);padding:12px 14px;margin-bottom:14px;line-height:1.6}
+label{display:block;font-size:13px;font-weight:500;color:var(--text);margin:14px 0 5px}
+label:first-child{margin-top:0}
+.hint{font-size:12px;color:var(--muted);margin:-1px 0 6px}
+input,textarea,select{width:100%;font-family:inherit;font-size:16px;color:var(--text);
+  background:var(--surface2);border:1px solid var(--line2);border-radius:10px;padding:11px 12px}
+textarea{min-height:64px;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent)}
+select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a8a8a' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:34px}
+
+.who-row{display:flex;gap:10px}
+.who-btn{flex:1;padding:13px;font-size:15px;font-weight:500;border:1px solid var(--line2);
+  border-radius:10px;background:var(--surface2);color:var(--muted)}
+.who-btn.sel-russ{background:var(--russ-bg);color:var(--russ);border-color:var(--russ)}
+.who-btn.sel-pam{background:var(--pam-bg);color:var(--pam);border-color:var(--pam)}
+
+.tag-wrap{display:flex;flex-wrap:wrap;gap:7px;margin-top:6px}
+.tag{padding:7px 13px;border-radius:20px;font-size:13px;font-weight:500;border:1px solid var(--line2);
+  background:var(--surface2);color:var(--muted)}
+.tag.sel{background:var(--accent-bg);color:var(--accent);border-color:var(--accent)}
+
+.commit-builder{background:var(--surface2);border:1px solid var(--line);border-radius:11px;padding:14px;margin-bottom:11px;position:relative}
+.cb-num{font-size:12px;font-weight:600;color:var(--accent);margin-bottom:10px;letter-spacing:.02em}
+.cb-del{position:absolute;top:11px;right:11px;width:30px;height:30px;border:1px solid var(--line2);
+  border-radius:8px;background:var(--surface);color:var(--muted);font-size:17px;line-height:1}
+.cb-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.review-date{font-size:13px;color:var(--accent);background:var(--accent-bg);border-radius:9px;
+  padding:9px 12px;margin-top:10px;font-weight:500}
+.add-btn{width:100%;padding:13px;font-size:14px;font-weight:500;border:1.5px dashed var(--line2);
+  border-radius:11px;background:transparent;color:var(--muted)}
+.primary-btn{width:100%;padding:15px;font-size:16px;font-weight:600;border:none;border-radius:12px;
+  background:var(--accent);color:#fff;margin-top:6px}
+.primary-btn:active{opacity:.85}
+
+/* history list */
+.fight{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:15px;margin-bottom:11px}
+.fight-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:6px}
+.fight-date{font-size:12px;color:var(--faint)}
+.fight-trigger{font-size:16px;font-weight:500;margin:2px 0 8px;font-family:Georgia,serif}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:7px}
+.chip{padding:3px 9px;border-radius:11px;font-size:11px;font-weight:500;background:var(--accent-bg);color:var(--accent)}
+.fight-sub{font-size:12px;color:var(--muted)}
+.badge{padding:3px 10px;border-radius:11px;font-size:11px;font-weight:600;white-space:nowrap}
+.b-progress{background:var(--russ-bg);color:var(--russ)}
+.b-resolved{background:var(--ok-bg);color:var(--ok)}
+.b-stalled{background:var(--due-bg);color:var(--due)}
+.b-reopened{background:var(--bad-bg);color:var(--bad)}
+
+/* detail */
+.back{font-size:14px;color:var(--accent);background:none;border:none;padding:0;margin-bottom:14px;font-weight:500}
+.persp{border-radius:11px;padding:14px;margin-bottom:11px;border:1px solid var(--line)}
+.persp.russ{background:var(--russ-bg);border-color:var(--russ)}
+.persp.pam{background:var(--pam-bg);border-color:var(--pam)}
+.persp .who{font-size:12px;font-weight:600;margin-bottom:7px}
+.persp.russ .who{color:var(--russ)}.persp.pam .who{color:var(--pam)}
+.persp .body{font-size:14px;line-height:1.6}
+.persp .body b{font-weight:600}
+.persp.empty{background:var(--surface2);border-style:dashed}
+.persp.empty .who{color:var(--faint)}
+.dt-title{font-size:13px;font-weight:600;color:var(--muted);margin:18px 0 10px;text-transform:uppercase;letter-spacing:.04em}
+
+/* commitment review cards */
+.cc{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-bottom:13px}
+.cc-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:9px}
+.cc-title{font-size:16px;font-weight:500;line-height:1.35;font-family:Georgia,serif}
+.cc-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:11px}
+.own{padding:3px 10px;border-radius:11px;font-size:11px;font-weight:600}
+.own-russ{background:var(--russ-bg);color:var(--russ)}
+.own-pam{background:var(--pam-bg);color:var(--pam)}
+.own-both{background:var(--accent-bg);color:var(--accent)}
+.cmp{display:grid;grid-template-columns:1fr;gap:9px;margin-bottom:10px}
+.cmp-box{background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:11px 13px}
+.cmp-l{font-size:11px;font-weight:600;color:var(--faint);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+.cmp-t{font-size:14px;line-height:1.5}
+.tf{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px;margin-bottom:4px}
+.tf .due{color:var(--due);font-weight:600}
+.rev{background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:11px 13px;margin-top:9px}
+.rev-h{font-size:12px;font-weight:600;display:flex;align-items:center;gap:8px;margin-bottom:5px}
+.assess{padding:1px 8px;border-radius:8px;font-size:10px;font-weight:600}
+.a-met{background:var(--ok-bg);color:var(--ok)}
+.a-partial{background:var(--due-bg);color:var(--due)}
+.a-notmet{background:var(--bad-bg);color:var(--bad)}
+.rev-t{font-size:14px;line-height:1.5;color:var(--text)}
+.rev-form{margin-top:12px;border-top:1px solid var(--line);padding-top:12px}
+.rf-row{display:flex;gap:8px;margin-bottom:8px}
+.rf-row select{flex:1}
+.mini-btn{padding:11px 16px;font-size:14px;font-weight:600;border:none;border-radius:10px;background:var(--accent);color:#fff}
+.ns-row{display:flex;gap:9px;align-items:center;margin-top:11px;flex-wrap:wrap}
+.ns-row select{flex:1;min-width:150px}
+.ghost-btn{padding:10px 14px;font-size:13px;font-weight:500;border:1px solid var(--line2);border-radius:10px;background:var(--surface);color:var(--text)}
+.section-label{font-size:11px;font-weight:600;color:var(--faint);text-transform:uppercase;letter-spacing:.04em;margin:13px 0 5px}
+.ns-note{font-size:13px;color:var(--muted);font-style:italic;margin-top:9px}
+
+/* filters */
+.filters{display:flex;gap:7px;overflow-x:auto;margin-bottom:14px;padding-bottom:2px}
+.filter{white-space:nowrap;padding:7px 14px;font-size:13px;border:1px solid var(--line2);border-radius:20px;background:var(--surface2);color:var(--muted);font-weight:500}
+.filter.active{background:var(--surface);color:var(--text);border-color:var(--text)}
+
+/* patterns */
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:16px}
+.metric{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:15px}
+.metric .n{font-size:26px;font-weight:600;font-family:Georgia,serif}
+.metric .l{font-size:12px;color:var(--muted);margin-top:3px}
+.bar{display:flex;align-items:center;gap:9px;margin-bottom:9px}
+.bar-l{font-size:13px;color:var(--text);min-width:130px}
+.bar-track{flex:1;height:9px;background:var(--surface2);border-radius:5px;overflow:hidden}
+.bar-fill{height:100%;background:var(--accent);border-radius:5px}
+.bar-n{font-size:12px;color:var(--muted);min-width:18px;text-align:right}
+
+.empty{text-align:center;padding:48px 20px;color:var(--faint);font-size:14px}
+.empty .serif{display:block;font-size:18px;color:var(--muted);margin-bottom:6px}
+
+/* bottom nav */
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--surface);
+  border-top:1px solid var(--line);display:flex;
+  padding:8px 8px calc(env(safe-area-inset-bottom) + 8px)}
+.nav button{flex:1;background:none;border:none;color:var(--faint);font-size:11px;font-weight:500;
+  display:flex;flex-direction:column;align-items:center;gap:3px;padding:4px}
+.nav button svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:1.7}
+.nav button.active{color:var(--accent)}
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%);background:#23262B;color:#fff;
+  font-size:14px;padding:11px 18px;border-radius:24px;z-index:60;opacity:0;transition:opacity .25s;pointer-events:none}
+.toast.show{opacity:1}
+.linkish{color:var(--accent);font-weight:500;background:none;border:none;font-size:13px;padding:0}
+</style>
+</head>
+<body>
+
+<!-- SETUP (shown if Firebase not configured) -->
+<div class="screen" id="screen-setup">
+  <div class="center">
+    <div class="mark"><svg viewBox="0 0 100 100"><circle cx="40" cy="50" r="26" fill="#5B7FA6" fill-opacity="0.82"/><circle cx="60" cy="50" r="26" fill="#B07088" fill-opacity="0.82"/></svg></div>
+    <h1>Almost there</h1>
+    <p class="lead">This app needs its free database connected before Russ and Pam can sync. Open this file in a text editor and follow the steps near the top of the code, then reload.</p>
+    <div class="setup-steps">
+      <ol>
+        <li>Create a free Firebase project</li>
+        <li>Add a Web app, copy the <code>firebaseConfig</code></li>
+        <li>Turn on Firestore and Anonymous sign-in</li>
+        <li>Paste your config and shared code into this file</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- IDENTITY -->
+<div class="screen" id="screen-identity">
+  <div class="center">
+    <div class="mark"><svg viewBox="0 0 100 100"><circle cx="40" cy="50" r="26" fill="#5B7FA6" fill-opacity="0.82"/><circle cx="60" cy="50" r="26" fill="#B07088" fill-opacity="0.82"/></svg></div>
+    <h1>Who's holding this phone?</h1>
+    <p class="lead">Pick once. This phone will log as you from now on. You can change it later in the corner.</p>
+    <div class="big-choice">
+      <button class="choice-btn russ" onclick="setIdentity('russ')"><span class="dot" style="background:var(--russ)"></span> I'm Russ</button>
+      <button class="choice-btn pam" onclick="setIdentity('pam')"><span class="dot" style="background:var(--pam)"></span> I'm Pam</button>
+    </div>
+  </div>
+</div>
+
+<!-- APP -->
+<div class="screen" id="screen-app">
+  <div class="appbar">
+    <h1>Repair</h1>
+    <button class="who-chip" id="who-chip" onclick="changeIdentity()"><span class="dot"></span><span id="who-name"></span><span class="sync-dot" id="sync-dot"></span></button>
+  </div>
+  <div class="content">
+    <!-- LOG -->
+    <div class="tabview active" id="tab-log">
+      <div class="notice">Log your own side once you've both cooled down. Keep each commitment to one specific thing over a set window — not the whole history. What you write stays private until you've both logged the same day.</div>
+      <div class="card">
+        <label>Who is logging right now?</label>
+        <div class="who-row">
+          <button class="who-btn" id="lwho-russ" onclick="pickWho('russ')">Russ</button>
+          <button class="who-btn" id="lwho-pam" onclick="pickWho('pam')">Pam</button>
+        </div>
+        <label>Date of the fight</label>
+        <input type="date" id="f-date">
+        <label>What triggered it?</label>
+        <input type="text" id="f-trigger" placeholder="The starting point, in one line">
+        <label>What escalated things?</label>
+        <textarea id="f-escalation" placeholder="What was said or done that made it worse — your honest account"></textarea>
+        <label>Which underlying issues did this touch?</label>
+        <div class="tag-wrap" id="f-tags"></div>
+      </div>
+      <div class="card">
+        <div style="font-weight:600;margin-bottom:4px">Action plan</div>
+        <div class="hint" style="margin-bottom:12px">One specific commitment, an owner, a time window. You review it against what really happened when the window ends.</div>
+        <div id="commit-list"></div>
+        <button class="add-btn" onclick="addCommit()">+ Add a commitment</button>
+      </div>
+      <button class="primary-btn" onclick="submitEntry()">Save my entry</button>
+    </div>
+
+    <!-- HISTORY -->
+    <div class="tabview" id="tab-history"></div>
+
+    <!-- COMMITMENTS -->
+    <div class="tabview" id="tab-commitments">
+      <div class="filters" id="c-filters">
+        <button class="filter active" data-f="all" onclick="setFilter('all',this)">All</button>
+        <button class="filter" data-f="active" onclick="setFilter('active',this)">Active</button>
+        <button class="filter" data-f="due" onclick="setFilter('due',this)">Due for review</button>
+        <button class="filter" data-f="reviewed" onclick="setFilter('reviewed',this)">Reviewed</button>
+      </div>
+      <div id="c-list"></div>
+    </div>
+
+    <!-- PATTERNS -->
+    <div class="tabview" id="tab-patterns">
+      <div class="metrics" id="metrics"></div>
+      <div class="card">
+        <div style="font-weight:600;margin-bottom:14px;font-family:Georgia,serif">Which issues come up most</div>
+        <div id="bars"></div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <button class="active" data-tab="log" onclick="switchTab('log',this)"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg>Log</button>
+    <button data-tab="history" onclick="switchTab('history',this)"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10" stroke-linecap="round"/></svg>History</button>
+    <button data-tab="commitments" onclick="switchTab('commitments',this)"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>Commitments</button>
+    <button data-tab="patterns" onclick="switchTab('patterns',this)"><svg viewBox="0 0 24 24"><path d="M5 20V10M12 20V4M19 20v-7" stroke-linecap="round"/></svg>Patterns</button>
+  </nav>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script type="module">
+/* ============================================================
+   STEP 1 — PASTE YOUR FIREBASE CONFIG HERE
+   (Firebase console → Project settings → Your apps → Web app)
+   ============================================================ */
+const firebaseConfig = {
+  apiKey: "AIzaSyBNis1biUNhSCEvE8jduPlkgYRB8igzgFs",
+  authDomain: "repair-417a2.firebaseapp.com",
+  projectId: "repair-417a2",
+  storageBucket: "repair-417a2.firebasestorage.app",
+  messagingSenderId: "919754769753",
+  appId: "1:919754769753:web:6794e39395045c1d54f848",
+  measurementId: "G-DJV793M0VX"
+};
+
+/* ============================================================
+   STEP 2 — CHOOSE ONE SHARED SECRET CODE
+   Both phones must use the EXACT same code. Keep it private.
+   Use the same value inside your Firestore security rules.
+   ============================================================ */
+const SPACE_CODE = "repair-rp-driftwood-harbour-4Kq9-xZ7m-2026";
+
+/* ====== nothing below here needs editing ====== */
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getFirestore, collection, onSnapshot, addDoc, doc, updateDoc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const CATS={
+  money:'Money / lifestyle expectations', phone:'Phone / social media',
+  physical:'Physical intimacy', emotional:'Emotional connection',
+  present:'Being present together', past:'Past history / old grievances',
+  values:'Values / life priorities', family:'Family influence',
+  social:'Social life / appearances'
+};
+const NAME={russ:'Russ',pam:'Pam',both:'Both'};
+const ASSESS={met:'Met',partial:'Partially met',notmet:'Not met'};
+
+let db=null, fightsCol=null, fights=[], identity=null;
+let activeTab='log', cFilter='all', openId=null, builderN=0, selWho=null, selTags=[];
+
+const $=id=>document.getElementById(id);
+const today=()=>new Date().toISOString().slice(0,10);
+const addDays=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x.toISOString().slice(0,10);};
+const fmt=d=>{if(!d)return'';const p=d.split('-');return new Date(p[0],p[1]-1,p[2]).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});};
+const esc=s=>(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');}
+function toast(m){const t=$('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200);}
+
+/* ---------- boot ---------- */
+if(firebaseConfig.apiKey.startsWith('PASTE')){
+  show('screen-setup');
+}else{
+  try{
+    const app=initializeApp(firebaseConfig);
+    const auth=getAuth(app);
+    db=getFirestore(app);
+    fightsCol=collection(db,'spaces',SPACE_CODE,'fights');
+    onAuthStateChanged(auth,u=>{ if(u) startSync(); });
+    signInAnonymously(auth).catch(e=>{ console.error(e); $('sync-dot').className='sync-dot sync-off'; toast('Sign-in failed — check Firebase setup'); });
+    identity=localStorage.getItem('repair_identity');
+    if(identity){ enterApp(); } else { show('screen-identity'); }
+  }catch(e){ console.error(e); show('screen-setup'); }
+}
+
+function startSync(){
+  const q=query(fightsCol,orderBy('date','desc'));
+  onSnapshot(q,snap=>{
+    fights=snap.docs.map(d=>({id:d.id,...d.data()}));
+    $('sync-dot').className='sync-dot';
+    renderActive();
+  },err=>{ console.error(err); $('sync-dot').className='sync-dot sync-off'; toast('Sync error — check Firestore rules'); });
+}
+
+window.setIdentity=w=>{ identity=w; localStorage.setItem('repair_identity',w); enterApp(); };
+window.changeIdentity=()=>{ if(confirm('Switch who this phone logs as?')){ localStorage.removeItem('repair_identity'); show('screen-identity'); } };
+
+function enterApp(){
+  show('screen-app');
+  $('who-chip').className='who-chip '+(identity==='russ'?'who-russ':'who-pam');
+  $('who-chip').querySelector('.dot').style.background=identity==='russ'?'var(--russ)':'var(--pam)';
+  $('who-name').textContent=NAME[identity];
+  pickWho(identity);
+  $('f-date').value=today();
+  $('f-tags').innerHTML=Object.entries(CATS).map(([k,v])=>`<span class="tag" data-t="${k}" onclick="toggleTag(this)">${v}</span>`).join('');
+  renderActive();
+}
+
+window.switchTab=(t,btn)=>{
+  activeTab=t; openId=null;
+  document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.tabview').forEach(v=>v.classList.remove('active'));
+  $('tab-'+t).classList.add('active');
+  window.scrollTo(0,0);
+  renderActive();
+};
+function renderActive(){
+  if(activeTab==='history'){ openId?renderDetail(openId):renderHistory(); }
+  else if(activeTab==='commitments') renderCommitments();
+  else if(activeTab==='patterns') renderPatterns();
+}
+
+/* ---------- log form ---------- */
+window.pickWho=w=>{ selWho=w;
+  $('lwho-russ').className='who-btn'+(w==='russ'?' sel-russ':'');
+  $('lwho-pam').className='who-btn'+(w==='pam'?' sel-pam':'');
+};
+window.toggleTag=el=>{ const t=el.dataset.t,i=selTags.indexOf(t);
+  if(i>-1){selTags.splice(i,1);el.classList.remove('sel');}else{selTags.push(t);el.classList.add('sel');} };
+
+window.addCommit=()=>{
+  const id='cb'+(builderN++);
+  const opts=Object.entries(CATS).map(([k,v])=>`<option value="${k}">${v}</option>`).join('');
+  const div=document.createElement('div');
+  div.className='commit-builder'; div.id=id;
+  div.innerHTML=`
+    <div class="cb-num">COMMITMENT</div>
+    <button class="cb-del" onclick="document.getElementById('${id}').remove()">×</button>
+    <label>The commitment</label>
+    <input type="text" data-k="title" placeholder="One specific behaviour we agree to change">
+    <div class="cb-grid">
+      <div><label>Who owns it</label><select data-k="owner"><option value="russ">Russ</option><option value="pam">Pam</option><option value="both">Both</option></select></div>
+      <div><label>Issue</label><select data-k="category">${opts}</select></div>
+    </div>
+    <label>Specific, measurable target</label>
+    <div class="hint">How often, how much, observable. e.g. "phone in another room during dinner, 5 nights a week"</div>
+    <textarea data-k="target" placeholder="What exactly will be different?"></textarea>
+    <label>What success looks like for us</label>
+    <div class="hint">The need underneath — why it matters to each of you</div>
+    <textarea data-k="success" placeholder="e.g. 'I feel chosen over the phone' / 'I feel my effort is noticed'"></textarea>
+    <div class="cb-grid">
+      <div><label>Start</label><input type="date" data-k="start" value="${today()}" onchange="upd('${id}')"></div>
+      <div><label>Work on it for</label><select data-k="weeks" onchange="upd('${id}')">
+        <option value="1">1 week</option><option value="2">2 weeks</option>
+        <option value="4" selected>4 weeks</option><option value="6">6 weeks</option>
+        <option value="8">8 weeks</option><option value="12">12 weeks</option></select></div>
+    </div>
+    <div class="review-date" data-k="rb">Review on ${fmt(addDays(today(),28))}</div>`;
+  $('commit-list').appendChild(div);
+};
+window.upd=id=>{ const el=$(id),s=el.querySelector('[data-k=start]').value||today(),w=+el.querySelector('[data-k=weeks]').value;
+  el.querySelector('[data-k=rb]').textContent='Review on '+fmt(addDays(s,w*7)); };
+
+function collectCommits(){
+  const out=[];
+  document.querySelectorAll('.commit-builder').forEach(el=>{
+    const g=k=>el.querySelector(`[data-k=${k}]`).value;
+    const title=g('title').trim(); if(!title)return;
+    const s=g('start')||today(), w=+g('weeks');
+    out.push({id:'c'+Date.now()+Math.random().toString(36).slice(2,6),title,owner:g('owner'),category:g('category'),
+      target:g('target').trim(),success:g('success').trim(),start:s,weeks:w,reviewDate:addDays(s,w*7),reviews:[],nextStep:'',nextNote:''});
+  });
+  return out;
+}
+
+window.submitEntry=async()=>{
+  if(!selWho)return toast('Pick who is logging');
+  const trigger=$('f-trigger').value.trim(); if(!trigger)return toast('Add what triggered it');
+  const date=$('f-date').value||today();
+  const commits=collectCommits();
+  const entry={trigger,escalation:$('f-escalation').value.trim(),tags:[...selTags],ts:Date.now()};
+  try{
+    const existing=fights.find(f=>f.date===date&&!f[selWho]);
+    if(existing){
+      await updateDoc(doc(fightsCol,existing.id),{[selWho]:entry,commits:[...(existing.commits||[]),...commits]});
+    }else{
+      await addDoc(fightsCol,{date,status:'In Progress',russ:selWho==='russ'?entry:null,pam:selWho==='pam'?entry:null,commits,createdAt:Date.now()});
+    }
+    clearForm(); toast('Saved');
+  }catch(e){ console.error(e); toast('Could not save — check connection'); }
+};
+function clearForm(){ selTags=[];builderN=0;$('f-trigger').value='';$('f-escalation').value='';
+  $('commit-list').innerHTML='';$('f-date').value=today();
+  document.querySelectorAll('#f-tags .tag').forEach(t=>t.classList.remove('sel')); }
+
+/* ---------- history ---------- */
+function renderHistory(){
+  const el=$('tab-history');
+  if(!fights.length){el.innerHTML='<div class="empty"><span class="serif">Nothing logged yet</span>When a fight happens, log it here after you cool down.</div>';return;}
+  el.innerHTML=fights.map(f=>{
+    const me=f.russ||f.pam;
+    const tags=(me?.tags||[]).map(t=>`<span class="chip">${CATS[t]}</span>`).join('');
+    const cm=f.commits||[], rev=cm.filter(c=>c.reviews&&c.reviews.length).length;
+    const both=f.russ&&f.pam?'Both logged':'1 of 2 logged';
+    const bc={'In Progress':'b-progress','Resolved':'b-resolved','Unresolved / Stalled':'b-stalled','Reopened':'b-reopened'}[f.status]||'b-progress';
+    return `<div class="fight" onclick="openFight('${f.id}')">
+      <div class="fight-top"><span class="fight-date">${fmt(f.date)} · ${both}</span><span class="badge ${bc}">${f.status}</span></div>
+      <div class="fight-trigger">${esc(me?.trigger||'')}</div>
+      <div class="chips">${tags}</div>
+      <div class="fight-sub">${cm.length?cm.length+' commitment'+(cm.length>1?'s':'')+' · '+rev+' reviewed':'No action plan'}</div>
+    </div>`;
+  }).join('');
+}
+window.openFight=id=>{ openId=id; renderDetail(id); window.scrollTo(0,0); };
+function renderDetail(id){
+  const f=fights.find(x=>x.id===id); if(!f){openId=null;return renderHistory();}
+  const tags=((f.russ||f.pam)?.tags||[]).map(t=>`<span class="chip">${CATS[t]}</span>`).join('');
+  const pr=f.russ?`<div class="persp russ"><div class="who">Russ's perspective</div><div class="body"><b>Trigger:</b> ${esc(f.russ.trigger)}<br><br>${esc(f.russ.escalation||'')}</div></div>`:`<div class="persp empty"><div class="who">Russ hasn't logged yet</div></div>`;
+  const pw=f.pam?`<div class="persp pam"><div class="who">Pam's perspective</div><div class="body"><b>Trigger:</b> ${esc(f.pam.trigger)}<br><br>${esc(f.pam.escalation||'')}</div></div>`:`<div class="persp empty"><div class="who">Pam hasn't logged yet</div></div>`;
+  const cm=(f.commits||[]).map(c=>{const st=cstatus(c);
+    return `<div class="cc"><div class="cc-top"><div class="cc-title">${esc(c.title)}</div><span class="badge ${st.cls}">${st.label}</span></div>
+      <div class="cc-badges"><span class="own own-${c.owner}">${NAME[c.owner]}</span><span class="chip">${CATS[c.category]}</span></div>
+      <div class="tf">review ${fmt(c.reviewDate)} — open the Commitments tab to review</div></div>`;}).join('');
+  const sOpts=['In Progress','Resolved','Reopened','Unresolved / Stalled'].map(s=>`<option${s===f.status?' selected':''}>${s}</option>`).join('');
+  $('tab-history').innerHTML=`<button class="back" onclick="backHistory()">‹ All fights</button>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <span class="fight-date">${fmt(f.date)}</span>
+      <select style="width:auto" onchange="setStatus('${f.id}',this.value)">${sOpts}</select></div>
+    <div class="chips" style="margin-bottom:14px">${tags}</div>
+    ${pr}${pw}
+    ${(f.commits||[]).length?`<div class="dt-title">Action plan</div>${cm}`:'<div class="fight-sub" style="margin-top:14px">No action plan for this fight.</div>'}`;
+}
+window.backHistory=()=>{ openId=null; renderHistory(); window.scrollTo(0,0); };
+window.setStatus=async(id,s)=>{ try{await updateDoc(doc(fightsCol,id),{status:s});}catch(e){toast('Could not update');} };
+
+/* ---------- commitment status ---------- */
+function cstatus(c){
+  if(c.nextStep==='Drop')return{label:'Dropped',cls:'b-stalled'};
+  if(!c.reviews||!c.reviews.length){ return today()>=c.reviewDate?{label:'Due',cls:'b-stalled'}:{label:'Active',cls:'b-progress'}; }
+  const r=c.reviews.map(x=>x.assess);
+  if(r.every(x=>x==='met'))return{label:'Achieved',cls:'b-resolved'};
+  if(r.every(x=>x==='notmet'))return{label:'Not met',cls:'b-reopened'};
+  return{label:'Partial',cls:'b-stalled'};
+}
+window.setFilter=(f,btn)=>{ cFilter=f; document.querySelectorAll('#c-filters .filter').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); renderCommitments(); };
+
+function renderCommitments(){
+  let all=[]; fights.forEach(f=>(f.commits||[]).forEach(c=>all.push({...c,fid:f.id})));
+  all.sort((a,b)=>(a.reviewDate||'').localeCompare(b.reviewDate||''));
+  all=all.filter(c=>{const st=cstatus(c);
+    if(cFilter==='active')return st.label==='Active';
+    if(cFilter==='due')return st.label==='Due';
+    if(cFilter==='reviewed')return c.reviews&&c.reviews.length;
+    return true;});
+  const el=$('c-list');
+  if(!all.length){el.innerHTML='<div class="empty"><span class="serif">No commitments here</span>Add an action plan when you log a fight.</div>';return;}
+  el.innerHTML=all.map(c=>ccard(c)).join('');
+}
+function ccard(c){
+  const st=cstatus(c), due=today()>=c.reviewDate;
+  const revs=(c.reviews||[]).map(r=>`<div class="rev"><div class="rev-h"><span style="color:${r.who==='russ'?'var(--russ)':'var(--pam)'}">${NAME[r.who]}</span><span class="assess a-${r.assess}">${ASSESS[r.assess]}</span><span style="color:var(--faint);font-weight:400">${fmt(r.date)}</span></div><div class="rev-t">${esc(r.note)}</div></div>`).join('');
+  const closed=c.nextStep==='Drop'||c.nextStep==='Mark resolved';
+  const form=closed?'':`<div class="rev-form"><div style="font-size:12px;font-weight:600;margin-bottom:8px">Log what actually happened</div>
+    <div class="rf-row"><select id="rw-${c.id}"><option value="russ">Russ</option><option value="pam">Pam</option></select>
+    <select id="ra-${c.id}"><option value="met">Met</option><option value="partial">Partially met</option><option value="notmet">Not met</option></select></div>
+    <textarea id="rn-${c.id}" placeholder="What did you actually do over this period? Be specific and factual."></textarea>
+    <button class="mini-btn" style="margin-top:8px" onclick="logReview('${c.fid}','${c.id}')">Save review</button></div>`;
+  const nsOpts=['','Keep going','Adjust the target','Extend the time','Drop','Mark resolved'].map(o=>`<option value="${o}"${c.nextStep===o?' selected':''}>${o||'Decide next step…'}</option>`).join('');
+  const ns=(c.reviews&&c.reviews.length)?`<div class="ns-row"><span style="font-size:12px;color:var(--muted)">Next step together</span>
+    <select onchange="setNext('${c.fid}','${c.id}',this.value)">${nsOpts}</select>
+    ${c.nextStep&&!closed?`<button class="ghost-btn" onclick="newCycle('${c.fid}','${c.id}')">New ${c.weeks}-wk cycle</button>`:''}</div>`:'';
+  return `<div class="cc"><div class="cc-top"><div class="cc-title">${esc(c.title)}</div><span class="badge ${st.cls}">${st.label}</span></div>
+    <div class="cc-badges"><span class="own own-${c.owner}">${NAME[c.owner]}</span><span class="chip">${CATS[c.category]}</span></div>
+    <div class="cmp"><div class="cmp-box"><div class="cmp-l">Target</div><div class="cmp-t">${esc(c.target)||'<span style="color:var(--faint)">No target set</span>'}</div></div>
+      <div class="cmp-box"><div class="cmp-l">Success looks like</div><div class="cmp-t">${esc(c.success)||'<span style="color:var(--faint)">—</span>'}</div></div></div>
+    <div class="tf">⏱ ${c.weeks}-week window · ${fmt(c.start)} → ${fmt(c.reviewDate)} ${due&&!(c.reviews&&c.reviews.length)?'<span class="due">· ready to review</span>':''}</div>
+    ${(c.reviews&&c.reviews.length)?`<div class="section-label">What actually happened</div>${revs}`:''}
+    ${form}${ns}
+    ${c.nextNote?`<div class="ns-note">${esc(c.nextNote)}</div>`:''}</div>`;
+}
+function findF(fid){return fights.find(f=>f.id===fid);}
+window.logReview=async(fid,cid)=>{
+  const f=findF(fid); if(!f)return; const c=(f.commits||[]).find(x=>x.id===cid); if(!c)return;
+  const who=$('rw-'+cid).value, assess=$('ra-'+cid).value, note=$('rn-'+cid).value.trim();
+  if(!note)return toast('Write what happened first');
+  if(!c.reviews)c.reviews=[]; c.reviews.push({who,assess,note,date:today()});
+  try{await updateDoc(doc(fightsCol,fid),{commits:f.commits}); toast('Review saved');}catch(e){toast('Could not save');}
+};
+window.setNext=async(fid,cid,v)=>{
+  const f=findF(fid); if(!f)return; const c=(f.commits||[]).find(x=>x.id===cid); if(!c)return;
+  c.nextStep=v||''; if(v==='Extend the time')c.reviewDate=addDays(c.reviewDate,c.weeks*7);
+  try{await updateDoc(doc(fightsCol,fid),{commits:f.commits});}catch(e){toast('Could not save');}
+};
+window.newCycle=async(fid,cid)=>{
+  const f=findF(fid); if(!f)return; const c=(f.commits||[]).find(x=>x.id===cid); if(!c)return;
+  const clone={...c,id:'c'+Date.now()+Math.random().toString(36).slice(2,6),start:today(),reviewDate:addDays(today(),c.weeks*7),reviews:[],nextStep:'',nextNote:'(continued from a previous cycle)'};
+  c.nextNote='Continued into a new cycle'; f.commits.push(clone);
+  try{await updateDoc(doc(fightsCol,fid),{commits:f.commits}); toast('New cycle started');}catch(e){toast('Could not save');}
+};
+
+/* ---------- patterns ---------- */
+function renderPatterns(){
+  let all=[]; fights.forEach(f=>(f.commits||[]).forEach(c=>all.push(c)));
+  const reviewed=all.filter(c=>c.reviews&&c.reviews.length).length;
+  const achieved=all.filter(c=>cstatus(c).label==='Achieved').length;
+  const rate=reviewed?Math.round(achieved/reviewed*100):0;
+  $('metrics').innerHTML=`
+    <div class="metric"><div class="n">${fights.length}</div><div class="l">Fights logged</div></div>
+    <div class="metric"><div class="n">${all.length}</div><div class="l">Commitments</div></div>
+    <div class="metric"><div class="n" style="color:var(--ok)">${achieved}</div><div class="l">Achieved</div></div>
+    <div class="metric"><div class="n" style="color:var(--accent)">${rate}%</div><div class="l">Hit rate (reviewed)</div></div>`;
+  const tc={}; fights.forEach(f=>((f.russ||f.pam)?.tags||[]).forEach(t=>tc[t]=(tc[t]||0)+1));
+  const mx=Math.max(1,...Object.values(tc)), sorted=Object.entries(tc).sort((a,b)=>b[1]-a[1]);
+  $('bars').innerHTML=sorted.length?sorted.map(([t,n])=>`<div class="bar"><div class="bar-l">${CATS[t]}</div><div class="bar-track"><div class="bar-fill" style="width:${Math.round(n/mx*100)}%"></div></div><div class="bar-n">${n}</div></div>`).join(''):'<div class="fight-sub">No data yet.</div>';
+}
+</script>
+</body>
+</html>
